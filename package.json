@@ -1,0 +1,149 @@
+{
+  "name": "docpad",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "ios": "react-native run-ios --simulator \"iPad Air (5th generation)\"",
+    "start": "react-native start",
+    "detox:clean": "detox clean-framework-cache && detox build-framework-cache",
+    "test:build:debug": "detox build --configuration ios.sim.debug",
+    "test:build:release": "detox build --configuration ios.sim.release ",
+    "test:run:debug": "detox test --configuration ios.sim.debug --debug-synchronization 200 --cleanup --reuse --take-screenshots failing",
+    "test:run:release": "detox test --configuration ios.sim.release --debug-synchronization 200 --take-screenshots failing",
+    "test:unit:run": "jest --updateSnapshot && jest --coverage",
+    "lint": "eslint --ignore-path .eslintignore 'src/**/*.{js,ts,tsx}' --fix",
+    "lint:fix": "npm run lint -- --fix",
+    "type-check": "tsc --project tsconfig.json --noEmit",
+    "format": "prettier --write \"src/**/*.tsx\"",
+    "prepare": "cd .. && husky install frontend/.husky && chmod ug+x frontend/.husky/*",
+    "api": "openapi-generator-cli generate -c oapi-generator-config.yaml -i https://dev.docpad.saturn.pi-medical-germany.de/openapi.json -g typescript-axios -o src/docpad-api/open-api",
+    "testflight-internal": "cd ios && fastlane ios internal"
+  },
+  "dependencies": {
+    "@react-keycloak/native": "^0.6.4",
+    "@react-native-async-storage/async-storage": "^1.21.0",
+    "@react-native-community/art": "^1.2.0",
+    "@react-navigation/native": "^6.1.17",
+    "@react-navigation/native-stack": "^6.9.26",
+    "@svgr/plugin-svgo": "^8.1.0",
+    "@tanstack/query-async-storage-persister": "^5.17.11",
+    "@tanstack/react-query": "^5.17.12",
+    "@tanstack/react-query-persist-client": "^5.17.12",
+    "@types/jest": "^29.5.12",
+    "@types/lodash": "^4.14.202",
+    "@types/mocha": "^10.0.6",
+    "@types/react-native-indicators": "^0.16.6",
+    "axios": "^1.6.1",
+    "core-js": "^3.37.1",
+    "i18next": "^23.6.0",
+    "jwt-decode": "^4.0.0",
+    "keycloak-js": "^24.0.4",
+    "lodash": "^4.17.21",
+    "react": "^18.2.0",
+    "react-hook-form": "^7.51.4",
+    "react-i18next": "^13.3.1",
+    "react-native": "^0.73.6",
+    "react-native-bouncy-checkbox": "^3.0.7",
+    "react-native-bouncy-checkbox-group": "^0.1.1",
+    "react-native-config": "^1.5.1",
+    "react-native-dotenv": "^3.4.11",
+    "react-native-dropdown-picker": "^5.4.6",
+    "react-native-gesture-responder": "^0.1.1",
+    "react-native-gifted-charts": "patch:react-native-gifted-charts@npm%3A1.4.10#~/.yarn/patches/react-native-gifted-charts-npm-1.4.10-749916933a.patch",
+    "react-native-inappbrowser-reborn": "^3.7.0",
+    "react-native-indicator": "^1.2.2",
+    "react-native-localization-settings": "^1.0.2",
+    "react-native-modal": "^13.0.1",
+    "react-native-popup-menu": "^0.16.1",
+    "react-native-reanimated": "^3.11.0",
+    "react-native-reanimated-table": "^0.0.2",
+    "react-native-safe-area-context": "^4.9.0",
+    "react-native-screens": "^3.30.1",
+    "react-native-svg": "^14.1.0",
+    "react-native-svg-transformer": "^1.2.0",
+    "react-native-url-polyfill": "^2.0.0",
+    "react-query": "^3.39.3",
+    "ts-jest": "^29.1.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0",
+    "@babel/preset-env": "^7.20.0",
+    "@babel/runtime": "^7.20.0",
+    "@openapitools/openapi-generator-cli": "^2.7.0",
+    "@react-native-community/eslint-config": "^3.2.0",
+    "@react-native/babel-preset": "0.73.21",
+    "@react-native/eslint-config": "0.73.2",
+    "@react-native/metro-config": "0.73.5",
+    "@react-native/typescript-config": "0.73.1",
+    "@types/node": "^20.9.0",
+    "@types/react": "^18.3.3",
+    "@types/react-native": "^0.73.0",
+    "@types/react-native-base64": "^0",
+    "@types/react-test-renderer": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "^7.11.0",
+    "@typescript-eslint/parser": "^7.11.0",
+    "babel-jest": "^29.6.3",
+    "babel-plugin-module-resolver": "^5.0.0",
+    "detox": "^20.13.5",
+    "eslint": "^8.19.0",
+    "eslint-plugin-jest": "^28.5.0",
+    "eslint-plugin-unused-imports": "^4.0.0",
+    "husky": "^8.0.0",
+    "jest": "^29.6.3",
+    "jest-transform-stub": "^2.0.0",
+    "lint-staged": "^15.2.5",
+    "prettier": "2.8.8",
+    "react-test-renderer": "18.2.0",
+    "typescript": "^5.4.5"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "jest": {
+    "preset": "react-native",
+    "globals": {
+      "ts-jest": {
+        "tsconfig": "tsconfig.spec.json",
+        "babelConfig": true
+      }
+    },
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest",
+      "^.+\\.(js|jsx)$": "babel-jest",
+      "^.+\\.svg$": "jest-transform-stub"
+    },
+    "transformIgnorePatterns": [
+      "jest-runner"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/node_modules/",
+      "\\.snap$",
+      "e2e"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  },
+  "packageManager": "yarn@4.2.2",
+  "lint-staged": {
+    "linters": {
+      "src/**/*.js": [
+        "formatter --write",
+        "git add"
+      ]
+    },
+    "ignore": [
+      "node_modules",
+      "dist",
+      "package-lock.json"
+    ]
+  },
+  "resolutions": {
+    "gifted-charts-core@npm:^0.1.4": "patch:gifted-charts-core@npm%3A0.1.4#~/.yarn/patches/gifted-charts-core-npm-0.1.4-70e19373ef.patch"
+  }
+}

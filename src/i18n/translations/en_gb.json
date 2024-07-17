@@ -1,0 +1,352 @@
+{
+  "general": {
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "name": "Name",
+    "gender": "Gender",
+    "age": "Age",
+    "careSetting": "Care setting",
+    "triggerForVisit": "Trigger for visit",
+    "episodeDates": "Episode dates",
+    "insuranceId": "Insurance ID",
+    "selectPlaceholder": "Select item...",
+    "addExplanation": "Add explanation here",
+    "seeMoreButton": "See more"
+  },
+  "buttons": {
+    "reportError": "Report this error",
+    "tryAgain": "Try again",
+    "goHomepage": "Go Homepage",
+    "ok": "OK",
+    "cancel": "Cancel",
+    "save": "Save",
+    "assignToMe": "Assign to me"
+  },
+  "roundtree": {
+    "MET": "MET",
+    "PSY": "PSY",
+    "NEU": "NEU",
+    "EYE": "EYE",
+    "ENT": "ENT",
+    "PUL": "PUL",
+    "CV": "CV",
+    "GI": "GI",
+    "GU": "GU",
+    "MUS": "MUS",
+    "DERM": "DERM",
+    "HEME": "HEME"
+  },
+  "sidebar": {
+    "doctorDashboard": "Doctor Dashboard",
+    "currentPatientList": "Current Patient List",
+    "diagnosticMatrix": "Diagnostic Matrix",
+    "changeDepartment": "Change Department",
+    "settings": "Settings",
+    "logoutHeader": "Are you sure you want to log out?",
+    "logoutInfo": "After logging out, it will be necessary to log back into the application to use it as before.",
+    "logout": "Log out",
+    "cancel": "Cancel"
+  },
+  "filters": {
+    "searchPlaceholder": "Search filter",
+    "label": "FILTER BY:",
+    "filterCount": "{{count}} filters",
+    "filterCountZero": "{{count}} filter"
+  },
+  "departmentChange": {
+    "departmentChange": "Department change",
+    "departmentSelection": "Department selection",
+    "infoText": "Select department from the list of departments that are assigned to you by local admin or from all departments in your institution.",
+    "myDepartments": "My departments",
+    "allDepartments": "All departments in my institution",
+    "department": "Department",
+    "switchExplanation": "Explanation to switch context to this department",
+    "search": "Search department"
+  },
+  "settings": {
+    "changePassword": "Change password"
+  },
+  "doctorDashboard": {
+    "title": "My tasks and complete patient list",
+    "refreshButtonLabel": "Refresh",
+    "addPatientButtonLabel": "Add new patient",
+    "overviewActionsDescription": "If you click on one of the coloured tiles, the patient list is sorted and the patients with notifications you are interested in are active are at the top of the list.",
+    "patientList": {
+      "title": "Patient list",
+      "searchPlaceholder": "Search by names and birthdate (DD-MM-YYYY)",
+      "filters": {
+        "searchPlaceholder": "Search filter",
+        "label": "FILTER BY:",
+        "filterCount": "{{count}} filters"
+      },
+      "sort": {
+        "label": "SORT BY:"
+      }
+    }
+  },
+  "patientDashboard": {
+    "header": {
+      "patientDashboard": "Patient Dashboard",
+      "myTasks": "My tasks and complete patient list",
+      "newEpisode": "New Episode",
+      "activeDiagnoses": "Active diagnoses",
+      "medicationPlan": "Medication plan",
+      "labValues": "Lab values over time",
+      "documents": "Documents"
+    },
+    "bodySystemsCard": {
+      "title": "Status of body systems throughout the episode"
+    },
+    "interpolatedTimeline": {
+      "yAxisDescription": "Body systems status",
+      "xAxisDescription": "Snapshots in selected episode",
+      "selectEpisodeHint": "Select an episode on the complete timeline above to see the detailed graph and interpolated RT on the right."
+    },
+    "cardsColumn": {
+      "selectEpisodeHint": "Please select an episode on the complete timeline to get some details about the last snapshot of the selected episode.",
+      "title": "The following data is a collection of basic information about the episode",
+      "institutionCard": {
+        "title": "Episode institution name and treatment team"
+      },
+      "triggerForVisitCard": {
+        "title": "Episode trigger for visit"
+      },
+      "diagnosesCard": {
+        "title": "Episode diagnoses"
+      },
+      "risksCard": {
+        "title": "Episode risk factors"
+      },
+      "proceduresCard": {
+        "title": "Episode procedures and operations"
+      }
+    },
+    "detailsOverview": {
+      "body": "You look at the diagnoses and risk factors for the patient's most recent episode snapshot:"
+    }
+  },
+  "currentPatientList": {
+    "title": "Current Patient List",
+    "addPatientButtonLabel": "Add new patient",
+    "table": {
+      "arrival": "Triage/\nArrival",
+      "arrivalTimeDate": "Arrival time \nand date",
+      "severityScheduledTime": "Severity/\nScheduled time",
+      "rm": "Rm",
+      "nameGender": "Name, Gender",
+      "age": "Age",
+      "triggerForVisit": "Trigger for visit",
+      "d1": "1\u00B0",
+      "d2": "2\u00B0",
+      "vitalSigns": "Vital signs",
+      "lab": "Lab",
+      "imaging": "Imaging",
+      "meds": "Meds",
+      "dispo": "Dispo",
+      "totalTime": "Total time",
+      "assigning": "Assigning"
+    },
+    "patientTableActions": {
+      "assignMe": "Assign me",
+      "gotoPatientDashboard": "View Patient Dashboard and all patient medical data.",
+      "gotoEpisodeDashboard": "View the episode dashboard and information from the last available episode."
+    },
+    "filterOptions": {
+      "patientsAssignedToMe": "Patients assigned to me",
+      "patientsNotAssignedToAnyone": "Patients who are not assigned to anyone"
+    }
+  },
+  "episodeNotNeedSupervision": {
+    "title": "Assigning episode",
+    "infoText": "You want to assign an episode for patient:",
+    "description": "Please confirm the transfer of the episode. This means that the responsibility for the patient data being added will be transferred and it will enable you to finalise the episode."
+  },
+  "diagnosticMatrix": {
+    "title": "Diagnostic Matrix",
+    "body": "Select the chief complaint and check the differential diagnoses on the matrix below, where the diagnoses are sorted by body system and cause of illness.",
+    "dropDownLabel": "Chief complaint",
+    "dropDownPlaceholder": "Select item...",
+    "filters": {
+      "label": "FILTER BY:",
+      "filterCount": "{{count}} filters"
+    },
+    "dialog": {
+      "title": "MATRIX DIAGRAM DESCRIPTION",
+      "point1": "The diagnosis matrix provides an overview of possible diagnoses that can be considered based on a patient's selected chief complaint. The matrix serves to expand the diagnostic considerations and is structured according to the body system from which the diagnosis originates and the pathological mechanism (etiology).",
+      "point2": "In the case of several possible etiologies, the diagnosis with the highest prevalence is listed in the row.",
+      "point3": "The MULT column includes those diagnoses which have more than one basic body system.",
+      "point4": "The entire list can be filtered by row, column or individual fields by clicking on them.",
+      "point5": "Select a diagnosis from the list by clicking on it to call up detailed information from the medical database.",
+      "point6": "The following legend shows which tag represents which type of category the etiology is assigned to.",
+      "int": "internal; illness or injury caused by a abnormality from within the body",
+      "ext": "external; illness or injury caused by external insult or lack of sufficient external alimentation or elimination",
+      "intExt": "internal and external; described above",
+      "other": "multiple, other or unknown other causes of illness or injury",
+      "risks": "Risks:",
+      "veryLowRisk": "very low risk",
+      "lowRisk": "low risk",
+      "mediumRisk": "medium risk",
+      "highRisk": "high risk",
+      "veryHighRisk": "very high risk",
+      "point7": "The numbers in the diamonds indicate the number of diagnoses located at the respective interface between the body system and the triggering cause. The colouring corresponds to the risk and is based on the diagnosis with the highest risk.",
+      "diagnose1": "1 diagnose",
+      "diagnose2": "2-4 diagnoses",
+      "diagnose3": "5-9 diagnoses",
+      "diagnose4": "10-20 diagnoses",
+      "diagnose5": ">20 diagnoses"
+    },
+    "diagnosticTable": {
+      "headers": {
+        "disease": "Disease’s etiology",
+        "bodySystem": "Body System"
+      },
+      "rows": {
+        "geneticDevelopmental": "Genetic/Developmental",
+        "anatomicStructural": "Anatomic/Structural",
+        "degenerativeAging": "Degenerative/Aging",
+        "neoplastic": "Neoplastic",
+        "regulatoryPhysiologic": "Regulatory/Physiologic",
+        "infectiousImmune": "Infectious/Immune/Inflammatory",
+        "toxicChemical": "Toxic/Chemical",
+        "traumaPhysical": "Trauma/Physical",
+        "environmentalSupply": "Environmental/Supply-demand",
+        "idiopathic": "Idiopathic"
+      },
+      "sidebars": {
+        "diagnosisLists": {
+          "title": "List of diagnosis ({{count}} DDx)",
+          "filter": "APPLIED FILTER"
+        },
+        "details": {
+          "title": "Details",
+          "selectDiagnosis": "Select one diagnosis from the list on the left to see detailed information about it.",
+          "rotateDevice": "Rotate device to see more details",
+          "prevalence": "PREVALENCE:",
+          "moreDetails": "MORE DETAILS:",
+          "lorem": "lorem ipsum dolor",
+          "lorem2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In feugiat, elit a sollicitudin rutrum, tortor ligula mollis velit, vitae pellentesque tellus nulla nec augue. Nullam vestibulum venenatis consectetur. Nulla odio urna, sodales at posuere a, accumsan non tortor. Donec id rutrum diam, eu volutpat dui. Fusce lobortis mauris luctus dolor convallis, eget lobortis est scelerisque. Etiam tristique volutpat leo, nec suscipit urna efficitur sit amet. Nunc tincidunt, felis in fringilla dignissim, orci est interdum sapien, at facilisis magna libero at quam. Nunc eget mauris et turpis pharetra pulvinar eu vel quam. Quisque sollicitudin tortor diam, id cursus eros fermentum vitae. Etiam congue justo et ex bibendum gravida. Nullam varius quam laoreet sem ullamcorper semper sit amet ut lorem. Vestibulum luctus urna metus, eget dictum purus imperdiet at. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam id dapibus nulla."
+        }
+      }
+    }
+  },
+  "languageSelection": {
+    "selectLanguage": "Select Language",
+    "start": "Start",
+    "info": "The application language can later be changed in the settings.",
+    "languageSwitcher": "Language switcher and preferred language of gender",
+    "selectGender": "Preferred language of gender",
+    "germanGendered": "German binary version",
+    "germanMale": "German generic male version"
+  },
+  "welcomeScreen": {
+    "welcome": "Welcome!",
+    "info": "DocPad® is an application for doctors to document relevant medical information about patient, support the data exchange between different institutions, visualize the patient history to support the diagnosis and treatment.",
+    "goToLoginPage": "Go to login page"
+  },
+  "loginScreen": {
+    "login": "Login",
+    "email": "E-mail",
+    "emailPlaceholder": "Your e-mail here",
+    "password": "Password",
+    "passwordPlaceholder": "Enter password here",
+    "forgotPassword": "Forgot password?",
+    "loginButton": "Login"
+  },
+  "changePassword": {
+    "title": "Change Password",
+    "oldPassword": "Old password",
+    "oldPasswordPlaceholder": "Enter old password",
+    "newPassword": "Password",
+    "newPasswordPlaceholder": "Enter password here",
+    "newPasswordCondition1": "At least 12 characters",
+    "newPasswordCondition2": "At least 1 uppercase",
+    "newPasswordCondition3": "At least 1 number",
+    "newPasswordCondition4": "At least 1 special character",
+    "reEnterPassword": "Re-enter password",
+    "reEnterPasswordPlaceholder": "Re-enter password here",
+    "rePasswordError": "Passwords entered are not identical. Try again.",
+    "changePasswordButton": "Change Password"
+  },
+  "forgotPassword": {
+    "title": "Forgot password",
+    "body": "Enter your email address, which is associated with your account.We \n will send a link to reset your password to this address.",
+    "email": "E-mail",
+    "emailPlaceholder": "Your e-mail here",
+    "forgotPasswordBtn": "Forgot password",
+    "login": "Login",
+    "checkYourInbox": {
+      "title": "Check your email inbox",
+      "body": "We have sent a link to reset your password to the email address you provided. Check your inbox and set a new password. \n\n If the email address has not reached you: \n look in your SPAM folder \n check to assure that the e-mail address you entered is correct",
+      "backToLogin": "Come back to login"
+    }
+  },
+  "addPatientScreen": {
+    "title": "Adding new patient to the DocPad",
+    "body": "Please enter following data points to add a patient to DocPad. Please notice, that the patient has to be present in your PMS.",
+    "firstNamePlaceholder": "Enter patient’s first name here",
+    "lastNamePlaceholder": "Enter patient’s last name here",
+    "insuranceIdError": "Insurance ID is incorrect. Try again.",
+    "insuranceIdPlaceholder": "Enter patient’s insurance ID here",
+    "insuranceProvider": "Insurance Provider (only if the patient is privately insured)",
+    "addPatientButton": "Add this new patient",
+    "searchResults": {
+      "searchingPatients": "Searching for a patient record in the PMS...",
+      "title": "Data Found in the PMS",
+      "noDataError": "No data of patient found in the PMS. Try again or add this patient record to the PMS first.",
+      "multipleDataError": "Multiple results was found in the PMS for this patient record. Please deduplicate in the PMS before creating the DocPad records. No data will be communicated to the DocPad system.",
+      "errorButton": "Restart the patient adition process"
+    },
+    "consentConfirmation": {
+      "title": "Confirmation of patient's consent",
+      "body": "Confirm that you have received consent from the patient to store data in DocPad.",
+      "info": "Additional info: it is likely that a digital consent and form for patient will be entered at this stage in the future. For the moment, consent is collected in paper form.",
+      "checkbox": "The patient has consented to his/her medical data being stored in the DocPad.",
+      "confirmButton": "Confirm and create a new patient's file"
+    }
+  },
+  "globalTimeline": {
+    "episode": "episode",
+    "out-patient": "out-patient",
+    "emergency": "emergency",
+    "in-patient": "in-patient",
+    "selectLatestOne": "select \nlatest one",
+    "today": "today",
+    "checkPreviousEpisode": "Check previous episode",
+    "checkNextEpisode": "Check next episode",
+    "checkSelectedEpisode": "Check selected episode details",
+    "clickTip": "When episode will be shown on the timeline true to scale you can click on it and select to see more details.",
+    "shadesTip": "If you would like to know what the different colour shades mean, you will find this information in the instructions for use."
+  },
+  "errorPages": {
+    "maintenance": {
+      "header": "This page is under maintenance",
+      "detail": "",
+      "info": ""
+    },
+    "construction": {
+      "header": "This page is under construction",
+      "detail": "There was some issues with syncing data.",
+      "info": "Try again or contact technical support/local admin."
+    },
+    "noRights": {
+      "header": "No rights to see this page",
+      "detail": "You probably have no rights to see content on this page.",
+      "info": "Try again or contact local admin."
+    },
+    "pageDoesntExist": {
+      "header": "The page you are looking for doesn’t exist",
+      "detail": "This might, for instance, be because the page has been moved or removed, there is something wrong with the web address, a technical error occurred",
+      "info": "Please, go back an try again later. If it still doesn’t work, contact us for help."
+    },
+    "cantBeReached": {
+      "header": "The site can’t be reached.",
+      "detail": "It takes too long to respond.",
+      "info": "Check your internet connection and try again. If it still doesn’t work, contact us for help."
+    },
+    "unableToShow": {
+      "header": "Sorry, we are unable to show this page at this time",
+      "detail": "Something went wrong and we are working to fix the problem.",
+      "info": "Try again, or welcome back later. If it still doesn’t work, please contact technical support."
+    }
+  }
+}

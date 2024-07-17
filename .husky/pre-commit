@@ -1,0 +1,78 @@
+#!/bin/sh
+
+run_commands_in_directory() {
+  local directory=$1
+
+  # Change to the specified directory
+  if cd "$directory"; then
+    echo "Running commands in $directory directory..."
+
+    # Run prettier on all files
+    yarn format
+
+    # Run lint on all files
+    yarn lint
+
+  else
+    echo "Failed to change to $directory directory."
+    exit 1
+  fi
+
+  if [ $? -eq 0 ]; then
+    printf "#######################################################################\n"
+    printf "##\n"
+    printf "##            ✅🐈‍⬛🐈✅ LINT CHECK PASSED ✅🐈🐈‍⬛✅\n"
+    printf "##\n"
+    printf "#######################################################################\n"
+  else
+    printf "#######################################################################\n"
+    printf "##\n"
+    printf "##      🤪😂❌🤬 Failed Lint check. 🤮😂❌🤯\n"
+    printf "##   ESLint Check Failed. Make the required changes listed above,\n"
+    printf "##           add changes and try to commit again.\n"
+    printf "##\n"
+    printf "#######################################################################\n"
+    exit 1
+  fi
+
+  # Run type-check on all files
+  yarn type-check
+
+  if [ $? -eq 0 ]; then
+    printf "#######################################################################\n"
+    printf "##\n"
+    printf "##            ✅🐈🐈‍⬛✅ TYPE CHECK PASSED ✅🐈‍⬛🐈✅\n"
+    printf "##\n"
+    printf "#######################################################################\n"
+  else
+    printf "#######################################################################\n"
+    printf "##\n"
+    printf "##            🤮😂❌🤯 Failed Type check. 🤪😂❌🤬\n"
+    printf "##           Are you seriously trying to write that?\n"
+    printf "##             Make the changes required above.\n"
+    printf "##\n"
+    printf "#######################################################################\n"
+    exit 1
+  fi
+
+  # Return to the previous directory
+  cd -
+}
+
+# Get the list of changed files
+changed_files=$(git diff --name-only --cached)
+
+# Check if there are changes in either frontend/ or localAdmin/frontend/
+if echo "$changed_files" | grep -E '^(frontend/|localAdmin/frontend/)' | grep -qE '^(frontend/.*|localAdmin/frontend/.*)$'; then
+  run_commands_in_directory frontend
+  run_commands_in_directory localAdmin/frontend/
+
+
+# Success
+printf "##\n"
+printf "#######################################################################\n"
+printf "##\n"
+printf "##   ✅✅✅✅ You win this time... I am committing this now. ✅✅✅✅\n"
+printf "##\n"
+printf "#######################################################################\n"
+fi

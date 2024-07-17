@@ -1,0 +1,1717 @@
+openapi: 3.1.0
+info:
+  title: Docpad WebService API on local
+  description: 'Docpad Backend on local, deployment date: 2024-07-04'
+  version: v0.10.10
+paths:
+  /keycloak_extensions/episode_check:
+    get:
+      tags:
+        - Keycloak extensions
+      summary: Episode Check
+      description: Check if the given department already has episodes
+      operationId: episode_check_keycloak_extensions_episode_check_get
+      deprecated: true
+      security:
+        - OAuth2: [ ]
+      parameters:
+        - name: department
+          in: query
+          required: true
+          schema:
+            type: string
+            format: uuid
+            title: Department
+        - name: config_num
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 0
+            title: Config Num
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EpisodeCheck'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /keycloak_extensions/departments:
+    get:
+      tags:
+        - Keycloak extensions
+      summary: Get Department Hierarchy
+      description: Get departments' hierarchy from keycloak with all their subgroups
+      operationId: get_department_hierarchy_keycloak_extensions_departments_get
+      security:
+        - OAuth2: [ ]
+      parameters:
+        - name: config_num
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 0
+            title: Config Num
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DepartmentRepresentation'
+                title: >-
+                  Response Get Department Hierarchy Keycloak Extensions
+                  Departments Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /keycloak_extensions/users:
+    get:
+      tags:
+        - Keycloak extensions
+      summary: Get Users
+      description: >-
+        Get all users from the keycloak and populate their groups and roles
+        lists
+      operationId: get_users_keycloak_extensions_users_get
+      security:
+        - OAuth2: [ ]
+      parameters:
+        - name: only_physicians
+          in: query
+          required: false
+          schema:
+            type: boolean
+            default: false
+            title: Only Physicians
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserInfo'
+                title: Response Get Users Keycloak Extensions Users Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/keycloak_extensions/users/{user_id}':
+    get:
+      tags:
+        - Keycloak extensions
+      summary: Get Single User
+      description: Return single user with populated group and roles
+      operationId: get_single_user_keycloak_extensions_users__user_id__get
+      security:
+        - OAuth2: [ ]
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+            title: User Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserInfo'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/keycloak_extensions/users/edit/{user_id}':
+    put:
+      tags:
+        - Keycloak extensions
+      summary: Edit User
+      description: Edit/delete user info and groups assigned as well
+      operationId: edit_user_keycloak_extensions_users_edit__user_id__put
+      security:
+        - OAuth2: [ ]
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+            title: User Id
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRepresentation'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: >-
+                  Response Edit User Keycloak Extensions Users Edit  User Id 
+                  Put
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /local_admin/specialist_status:
+    get:
+      tags:
+        - Local Admin
+      summary: Get Medical Specialities
+      description: Get the list of allowed specialist statuses
+      operationId: get_medical_specialities_local_admin_specialist_status_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/SpecialityItem'
+                type: array
+                title: >-
+                  Response Get Medical Specialities Local Admin Specialist
+                  Status Get
+      security:
+        - OAuth2: [ ]
+  /dashboards/patients:
+    get:
+      tags:
+        - Doctors Dashboard
+      summary: Get Dashboard
+      description: Endpoint to get all relevant data for doctor's dashboard
+      operationId: get_dashboard_dashboards_patients_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DoctorsDashboardResponse'
+      security:
+        - OAuth2: [ ]
+  '/dashboards/doctor/{doctor_id}/all_departments':
+    get:
+      tags:
+        - Doctors Dashboard
+      summary: Get All Departments
+      description: Retrieve doctor assigned departments and institution departments
+      operationId: get_all_departments_dashboards_doctor__doctor_id__all_departments_get
+      security:
+        - OAuth2: [ ]
+      parameters:
+        - name: doctor_id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+            title: Doctor Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DoctorsDashboardInstitutionsResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/dashboards/doctor/{doctor_id}/selected_department':
+    get:
+      tags:
+        - Doctors Dashboard
+      summary: Get Doctor Selected Department
+      description: Retrieve selected department of doctor
+      operationId: >-
+        get_doctor_selected_department_dashboards_doctor__doctor_id__selected_department_get
+      security:
+        - OAuth2: [ ]
+      parameters:
+        - name: doctor_id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+            title: Doctor Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DoctorsSelectedDepartment'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/dashboards/doctor/{doctor_id}/department/{department_id}/selected_department':
+    put:
+      tags:
+        - Doctors Dashboard
+      summary: Patch Doctor Selected Department
+      description: Update doctor selected department
+      operationId: >-
+        patch_doctor_selected_department_dashboards_doctor__doctor_id__department__department_id__selected_department_put
+      security:
+        - OAuth2: [ ]
+      parameters:
+        - name: doctor_id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+            title: Doctor Id
+        - name: department_id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+            title: Department Id
+        - name: reason
+          in: query
+          required: false
+          schema:
+            anyOf:
+              - type: string
+              - type: 'null'
+            title: Reason
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DoctorsDashboardGenericResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /patient/validate_patient:
+    get:
+      tags:
+        - Patient
+      summary: Validate Patient
+      description: Validate patient in PMS and check if it exists in DB
+      operationId: validate_patient_patient_validate_patient_get
+      security:
+        - OAuth2: [ ]
+      parameters:
+        - name: health_insurance_number
+          in: query
+          required: true
+          schema:
+            type: string
+            description: Valid health insurance number
+            title: Health Insurance Number
+          description: Valid health insurance number
+        - name: config_num
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 0
+            title: Config Num
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DBPatientResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /patient/create:
+    post:
+      tags:
+        - Patient
+      summary: Create Patient
+      description: Create patient in the database
+      operationId: create_patient_patient_create_post
+      security:
+        - OAuth2: [ ]
+      parameters:
+        - name: patient_consent
+          in: query
+          required: true
+          schema:
+            type: boolean
+            title: Patient Consent
+        - name: config_num
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 0
+            title: Config Num
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidInsuranceID'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DBPatientResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/patient/{patient_id}':
+    get:
+      tags:
+        - Patient
+      summary: Read Patient
+      description: Read the patient from the database
+      operationId: read_patient_patient__patient_id__get
+      security:
+        - OAuth2: [ ]
+      parameters:
+        - name: patient_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            title: Patient Id
+        - name: config_num
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 0
+            title: Config Num
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DBPatient'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/patient/{patient_id}/update':
+    put:
+      tags:
+        - Patient
+      summary: Update Patient
+      description: Update the patient in the database
+      operationId: update_patient_patient__patient_id__update_put
+      security:
+        - OAuth2: [ ]
+      parameters:
+        - name: patient_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            title: Patient Id
+        - name: config_num
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 0
+            title: Config Num
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatientUpdate'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DBPatient'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/patient/{patient_id}/delete':
+    delete:
+      tags:
+        - Patient
+      summary: Delete Patient
+      description: Delete the patient from the database
+      operationId: delete_patient_patient__patient_id__delete_delete
+      security:
+        - OAuth2: [ ]
+      parameters:
+        - name: patient_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            title: Patient Id
+        - name: config_num
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 0
+            title: Config Num
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/patient/patient_episodes/{patient_id}':
+    get:
+      tags:
+        - Patient
+      summary: Get Patient Episodes
+      description: Read the patient from the episode mock
+      operationId: get_patient_episodes_patient_patient_episodes__patient_id__get
+      security:
+        - OAuth2: [ ]
+      parameters:
+        - name: patient_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            title: Patient Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PatientEpisode'
+                title: >-
+                  Response Get Patient Episodes Patient Patient Episodes 
+                  Patient Id  Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /current_patients_list:
+    get:
+      tags:
+        - Current Patients list
+      summary: Get Current Patient List
+      description: Get current patient list by department id
+      operationId: get_current_patient_list_current_patients_list_get
+      security:
+        - OAuth2: [ ]
+      parameters:
+        - name: department_id
+          in: query
+          required: true
+          schema:
+            type: string
+            format: uuid
+            title: Department Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                anyOf:
+                  - type: array
+                    items:
+                      $ref: '#/components/schemas/InPatientRecord'
+                  - type: array
+                    items:
+                      $ref: '#/components/schemas/OutPatientRecord'
+                  - type: array
+                    items:
+                      $ref: '#/components/schemas/EmergencyRecord'
+                title: Response Get Current Patient List Current Patients List Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    Action:
+      type: string
+      title: Action
+      description: Pydantic representation of a Keycloak Action
+    Attributes:
+      additionalProperties:
+        items:
+          type: string
+        type: array
+      type: object
+      title: Attributes
+      description: Pydantic representation of a Keycloak Attributes
+      examples:
+        - approbation_number:
+            - '9876543210'
+          birthdate:
+            - 01.01.2001
+          birthplace:
+            - Munich
+          facharzt_status:
+            - Radiologe
+          firstName:
+            - Jelena
+          gender:
+            - female
+          lanr:
+            - '9876543210'
+          lastName:
+            - Sommer
+          phone:
+            - 089/32168
+          title:
+            - Dr.
+    AttributesAll:
+      properties:
+        approbation_number:
+          anyOf:
+            - items:
+                type: string
+              type: array
+            - type: 'null'
+          title: Approbation Number
+        country:
+          anyOf:
+            - items:
+                type: string
+              type: array
+            - type: 'null'
+          title: Country
+        birthdate:
+          anyOf:
+            - items:
+                type: string
+              type: array
+            - type: 'null'
+          title: Birthdate
+        gender:
+          anyOf:
+            - items:
+                type: string
+              type: array
+            - type: 'null'
+          title: Gender
+        formatted:
+          anyOf:
+            - items:
+                type: string
+              type: array
+            - type: 'null'
+          title: Formatted
+        locality:
+          anyOf:
+            - items:
+                type: string
+              type: array
+            - type: 'null'
+          title: Locality
+        billing_country:
+          anyOf:
+            - items:
+                type: string
+              type: array
+            - type: 'null'
+          title: Billing Country
+        language_selection:
+          anyOf:
+            - items:
+                type: string
+              type: array
+            - type: 'null'
+          title: Language Selection
+        lanr:
+          anyOf:
+            - items:
+                type: string
+              type: array
+            - type: 'null'
+          title: Lanr
+        billing_locality:
+          anyOf:
+            - items:
+                type: string
+              type: array
+            - type: 'null'
+          title: Billing Locality
+        title:
+          anyOf:
+            - items:
+                type: string
+              type: array
+            - type: 'null'
+          title: Title
+        facharzt_status:
+          anyOf:
+            - items:
+                type: string
+              type: array
+            - type: 'null'
+          title: Facharzt Status
+        billing_street:
+          anyOf:
+            - items:
+                type: string
+              type: array
+            - type: 'null'
+          title: Billing Street
+        billing_region:
+          anyOf:
+            - items:
+                type: string
+              type: array
+            - type: 'null'
+          title: Billing Region
+        billing_postal_code:
+          anyOf:
+            - items:
+                type: string
+              type: array
+            - type: 'null'
+          title: Billing Postal Code
+        birthplace:
+          anyOf:
+            - items:
+                type: string
+              type: array
+            - type: 'null'
+          title: Birthplace
+        phone:
+          anyOf:
+            - items:
+                type: string
+              type: array
+            - type: 'null'
+          title: Phone
+        street:
+          anyOf:
+            - items:
+                type: string
+              type: array
+            - type: 'null'
+          title: Street
+        billing_formatted:
+          anyOf:
+            - items:
+                type: string
+              type: array
+            - type: 'null'
+          title: Billing Formatted
+        region:
+          anyOf:
+            - items:
+                type: string
+              type: array
+            - type: 'null'
+          title: Region
+        postal_code:
+          anyOf:
+            - items:
+                type: string
+              type: array
+            - type: 'null'
+          title: Postal Code
+        selected_department:
+          anyOf:
+            - items:
+                type: string
+              type: array
+            - type: 'null'
+          title: Selected Department
+        global_role:
+          anyOf:
+            - items:
+                type: string
+              type: array
+            - type: 'null'
+          title: Global Role
+        assigned_departments:
+          anyOf:
+            - items:
+                type: string
+              type: array
+            - type: 'null'
+          title: Assigned Departments
+      type: object
+      title: AttributesAll
+      description: Pydantic model for all users attributes request that are optional
+    ClientID:
+      type: string
+      title: ClientID
+      description: Pydantic representation of a Keycloak ClientID
+    ClientRoles:
+      additionalProperties:
+        items:
+          $ref: '#/components/schemas/Role'
+        type: array
+        uniqueItems: true
+      type: object
+      title: ClientRoles
+      description: Pydantic representation of a Keycloak ClientRoles
+      examples:
+        - local_admin_interface:
+            - local_admin_user
+          realm-management:
+            - manage-users
+            - query-groups
+            - view-realm
+            - view-clients
+            - manage-identity-providers
+            - view-users
+            - view-identity-providers
+            - query-users
+    DBPatient:
+      properties:
+        firstName:
+          type: string
+          title: Firstname
+        lastName:
+          type: string
+          title: Lastname
+        birthdate:
+          type: string
+          format: date
+          title: Birthdate
+        sex:
+          anyOf:
+            - $ref: '#/components/schemas/Sex'
+            - type: 'null'
+        healthInsuranceNumber:
+          type: string
+          maxLength: 30
+          title: Healthinsurancenumber
+        email:
+          anyOf:
+            - type: string
+              format: email
+            - type: 'null'
+          title: Email
+        mainDoctorId:
+          anyOf:
+            - type: string
+              format: uuid
+            - type: 'null'
+          title: Maindoctorid
+        patientConsent:
+          anyOf:
+            - type: boolean
+            - type: 'null'
+          title: Patientconsent
+        id:
+          type: integer
+          title: Id
+        age:
+          type: integer
+          title: Age
+          description: Calculate the age of the patient based on their birthdate
+          readOnly: true
+      type: object
+      required:
+        - firstName
+        - lastName
+        - birthdate
+        - healthInsuranceNumber
+        - id
+        - age
+      title: DBPatient
+      description: Representation of the patient in the database
+    DBPatientResponse:
+      properties:
+        message:
+          type: string
+          title: Message
+        patientData:
+          anyOf:
+            - $ref: '#/components/schemas/DBPatientSnake'
+            - type: 'null'
+      type: object
+      required:
+        - message
+        - patientData
+      title: DBPatientResponse
+      description: A response returning patient object and a message
+    DBPatientSnake:
+      properties:
+        first_name:
+          type: string
+          title: First Name
+        last_name:
+          type: string
+          title: Last Name
+        birthdate:
+          type: string
+          format: date
+          title: Birthdate
+        sex:
+          anyOf:
+            - $ref: '#/components/schemas/Sex'
+            - type: 'null'
+        health_insurance_number:
+          type: string
+          maxLength: 30
+          title: Health Insurance Number
+        email:
+          anyOf:
+            - type: string
+              format: email
+            - type: 'null'
+          title: Email
+        main_doctor_id:
+          anyOf:
+            - type: string
+              format: uuid
+            - type: 'null'
+          title: Main Doctor Id
+        patient_consent:
+          anyOf:
+            - type: boolean
+            - type: 'null'
+          title: Patient Consent
+        id:
+          type: integer
+          title: Id
+        age:
+          type: integer
+          title: Age
+          description: Calculate the age of the patient based on their birthdate
+          readOnly: true
+      type: object
+      required:
+        - first_name
+        - last_name
+        - birthdate
+        - health_insurance_number
+        - id
+        - age
+      title: DBPatientSnake
+      description: Representation of the patient in the database in snake_case
+    DashboardPatient:
+      properties:
+        firstName:
+          type: string
+          title: Firstname
+        lastName:
+          type: string
+          title: Lastname
+        birthdate:
+          type: string
+          format: date
+          title: Birthdate
+        sex:
+          anyOf:
+            - $ref: '#/components/schemas/Sex'
+            - type: 'null'
+        healthInsuranceNumber:
+          type: string
+          maxLength: 30
+          title: Healthinsurancenumber
+        email:
+          anyOf:
+            - type: string
+              format: email
+            - type: 'null'
+          title: Email
+        mainDoctorId:
+          anyOf:
+            - type: string
+              format: uuid
+            - type: 'null'
+          title: Maindoctorid
+        patientConsent:
+          anyOf:
+            - type: boolean
+            - type: 'null'
+          title: Patientconsent
+        id:
+          type: integer
+          title: Id
+        lastVisit:
+          type: string
+          format: date
+          title: Lastvisit
+        notificationsCount:
+          $ref: '#/components/schemas/NotificationsCount'
+        age:
+          type: integer
+          title: Age
+          description: Calculate the age of the patient based on their birthdate
+          readOnly: true
+      type: object
+      required:
+        - firstName
+        - lastName
+        - birthdate
+        - healthInsuranceNumber
+        - id
+        - lastVisit
+        - notificationsCount
+        - age
+      title: DashboardPatient
+      description: A patient with some additional information related to the dashboard
+    DepartmentRepresentation:
+      properties:
+        id:
+          type: string
+          format: uuid4
+          title: Id
+        name:
+          type: string
+          title: Name
+        path:
+          type: string
+          title: Path
+        attributes:
+          $ref: '#/components/schemas/Attributes'
+        realmRoles:
+          $ref: '#/components/schemas/RealmRoles'
+        clientRoles:
+          $ref: '#/components/schemas/ClientRoles'
+        subGroups:
+          items:
+            $ref: '#/components/schemas/DepartmentRepresentation'
+          type: array
+          title: Subgroups
+        episodeCheck:
+          type: boolean
+          title: Episodecheck
+      type: object
+      required:
+        - id
+        - name
+        - path
+        - attributes
+        - realmRoles
+        - clientRoles
+        - subGroups
+        - episodeCheck
+      title: DepartmentRepresentation
+      description: Pydentic model for a Department
+    DoctorsDashboardGenericResponse:
+      properties:
+        message:
+          type: string
+          title: Message
+      type: object
+      required:
+        - message
+      title: DoctorsDashboardGenericResponse
+      description: A response containing a message
+    DoctorsDashboardInstitutionsResponse:
+      properties:
+        institutionDepartments:
+          items:
+            $ref: '#/components/schemas/DoctorsSelectedDepartment'
+          type: array
+          title: Institutiondepartments
+        doctorAssignedDepartments:
+          items:
+            $ref: '#/components/schemas/DoctorsSelectedDepartment'
+          type: array
+          title: Doctorassigneddepartments
+      type: object
+      required:
+        - institutionDepartments
+        - doctorAssignedDepartments
+      title: DoctorsDashboardInstitutionsResponse
+      description: >-
+        A response containing all the departments in an institution and Doctor
+        assigned Departments
+    DoctorsDashboardResponse:
+      properties:
+        patients:
+          items:
+            $ref: '#/components/schemas/DashboardPatient'
+          type: array
+          title: Patients
+        department:
+          anyOf:
+            - $ref: '#/components/schemas/GroupRepresentation'
+            - type: string
+          title: Department
+        notificationsCount:
+          allOf:
+            - $ref: '#/components/schemas/NotificationsCount'
+          description: >-
+            Calculate the global notifications count based on the counts of the
+            patients
+          readOnly: true
+      type: object
+      required:
+        - patients
+        - department
+        - notificationsCount
+      title: DoctorsDashboardResponse
+      description: A response containing the data relevant for the dashboard
+    DoctorsSelectedDepartment:
+      properties:
+        id:
+          type: string
+          title: Id
+        path:
+          type: string
+          title: Path
+        name:
+          type: string
+          title: Name
+      type: object
+      required:
+        - id
+        - path
+        - name
+      title: DoctorsSelectedDepartment
+      description: Selected department response model
+    EmergencyRecord:
+      properties:
+        arrivalTime:
+          type: string
+          format: date-time
+          title: Arrivaltime
+        firstName:
+          type: string
+          title: Firstname
+        lastName:
+          type: string
+          title: Lastname
+        sex:
+          type: string
+          pattern: ^(Male|Female|Diverse)$
+          title: Sex
+        birthdate:
+          type: string
+          format: date-time
+          title: Birthdate
+        triggerForVisit:
+          type: string
+          title: Triggerforvisit
+        d1:
+          type: string
+          format: uuid4
+          title: D1
+        d2:
+          type: string
+          format: uuid4
+          title: D2
+        vitalSigns:
+          type: integer
+          title: Vitalsigns
+        laboratory:
+          type: integer
+          title: Laboratory
+        imaging:
+          type: integer
+          title: Imaging
+        medication:
+          type: integer
+          title: Medication
+        release:
+          type: string
+          title: Release
+        patientId:
+          type: integer
+          title: Patientid
+        lastEpisode:
+          $ref: '#/components/schemas/LastEpisode'
+        severity:
+          type: integer
+          maximum: 10
+          minimum: 1
+          title: Severity
+        room:
+          type: string
+          title: Room
+      type: object
+      required:
+        - arrivalTime
+        - firstName
+        - lastName
+        - sex
+        - birthdate
+        - triggerForVisit
+        - d1
+        - d2
+        - vitalSigns
+        - laboratory
+        - imaging
+        - medication
+        - release
+        - patientId
+        - lastEpisode
+        - severity
+        - room
+      title: EmergencyRecord
+      description: Emergency care current patients list fields
+    EpisodeCheck:
+      properties:
+        check:
+          type: boolean
+          title: Check
+        department:
+          type: string
+          format: uuid4
+          title: Department
+      type: object
+      required:
+        - check
+        - department
+      title: EpisodeCheck
+      description: A response model for checking existing episodes for the department
+    Group:
+      type: string
+      title: Group
+      description: Pydantic representation of a Keycloak Group
+    GroupListing:
+      items:
+        $ref: '#/components/schemas/Group'
+      type: array
+      uniqueItems: true
+      title: GroupListing
+      description: Pydantic representation of unique Keycloak Groups
+    GroupRepresentation:
+      properties:
+        id:
+          type: string
+          format: uuid4
+          title: Id
+        name:
+          type: string
+          title: Name
+        path:
+          type: string
+          title: Path
+        attributes:
+          $ref: '#/components/schemas/Attributes'
+        realmRoles:
+          $ref: '#/components/schemas/RealmRoles'
+        clientRoles:
+          $ref: '#/components/schemas/ClientRoles'
+        subGroups:
+          items:
+            $ref: '#/components/schemas/GroupRepresentation'
+          type: array
+          title: Subgroups
+      type: object
+      required:
+        - id
+        - name
+        - path
+        - attributes
+        - realmRoles
+        - clientRoles
+        - subGroups
+      title: GroupRepresentation
+      description: Pydantic model for a Keycloak Group
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    InPatientRecord:
+      properties:
+        arrivalTime:
+          type: string
+          format: date-time
+          title: Arrivaltime
+        firstName:
+          type: string
+          title: Firstname
+        lastName:
+          type: string
+          title: Lastname
+        sex:
+          type: string
+          pattern: ^(Male|Female|Diverse)$
+          title: Sex
+        birthdate:
+          type: string
+          format: date-time
+          title: Birthdate
+        triggerForVisit:
+          type: string
+          title: Triggerforvisit
+        d1:
+          type: string
+          format: uuid4
+          title: D1
+        d2:
+          type: string
+          format: uuid4
+          title: D2
+        vitalSigns:
+          type: integer
+          title: Vitalsigns
+        laboratory:
+          type: integer
+          title: Laboratory
+        imaging:
+          type: integer
+          title: Imaging
+        medication:
+          type: integer
+          title: Medication
+        release:
+          type: string
+          title: Release
+        patientId:
+          type: integer
+          title: Patientid
+        lastEpisode:
+          $ref: '#/components/schemas/LastEpisode'
+        room:
+          type: string
+          title: Room
+      type: object
+      required:
+        - arrivalTime
+        - firstName
+        - lastName
+        - sex
+        - birthdate
+        - triggerForVisit
+        - d1
+        - d2
+        - vitalSigns
+        - laboratory
+        - imaging
+        - medication
+        - release
+        - patientId
+        - lastEpisode
+        - room
+      title: InPatientRecord
+      description: Inpatient care current patients list fields
+    LastEpisode:
+      properties:
+        id:
+          type: string
+          format: uuid4
+          title: Id
+        date:
+          type: string
+          format: date-time
+          title: Date
+      type: object
+      required:
+        - id
+        - date
+      title: LastEpisode
+      description: Class to represent last episode details
+    NotificationsCount:
+      properties:
+        newLabResults:
+          type: integer
+          title: Newlabresults
+          default: 0
+        newImagingResults:
+          type: integer
+          title: Newimagingresults
+          default: 0
+        newDocuments:
+          type: integer
+          title: Newdocuments
+          default: 0
+        signatureRequired:
+          type: integer
+          title: Signaturerequired
+          default: 0
+      type: object
+      title: NotificationsCount
+      description: A count for possible notification types
+    OutPatientRecord:
+      properties:
+        arrivalTime:
+          type: string
+          format: date-time
+          title: Arrivaltime
+        firstName:
+          type: string
+          title: Firstname
+        lastName:
+          type: string
+          title: Lastname
+        sex:
+          type: string
+          pattern: ^(Male|Female|Diverse)$
+          title: Sex
+        birthdate:
+          type: string
+          format: date-time
+          title: Birthdate
+        triggerForVisit:
+          type: string
+          title: Triggerforvisit
+        d1:
+          type: string
+          format: uuid4
+          title: D1
+        d2:
+          type: string
+          format: uuid4
+          title: D2
+        vitalSigns:
+          type: integer
+          title: Vitalsigns
+        laboratory:
+          type: integer
+          title: Laboratory
+        imaging:
+          type: integer
+          title: Imaging
+        medication:
+          type: integer
+          title: Medication
+        release:
+          type: string
+          title: Release
+        patientId:
+          type: integer
+          title: Patientid
+        lastEpisode:
+          $ref: '#/components/schemas/LastEpisode'
+        severity:
+          type: integer
+          maximum: 10
+          minimum: 1
+          title: Severity
+      type: object
+      required:
+        - arrivalTime
+        - firstName
+        - lastName
+        - sex
+        - birthdate
+        - triggerForVisit
+        - d1
+        - d2
+        - vitalSigns
+        - laboratory
+        - imaging
+        - medication
+        - release
+        - patientId
+        - lastEpisode
+        - severity
+      title: OutPatientRecord
+      description: Outpatient care current patients list fields
+    PatientEpisode:
+      properties:
+        episodeId:
+          type: string
+          title: Episodeid
+        startDate:
+          type: string
+          format: date-time
+          title: Startdate
+        endDate:
+          type: string
+          format: date-time
+          title: Enddate
+        careSystem:
+          type: string
+          title: Caresystem
+      type: object
+      required:
+        - episodeId
+        - startDate
+        - endDate
+        - careSystem
+      title: PatientEpisode
+      description: Representation of the patient episodes
+    PatientUpdate:
+      properties:
+        firstName:
+          type: string
+          title: Firstname
+        lastName:
+          type: string
+          title: Lastname
+        birthdate:
+          type: string
+          format: date
+          title: Birthdate
+        sex:
+          anyOf:
+            - $ref: '#/components/schemas/Sex'
+            - type: 'null'
+          title: Sex
+        healthInsuranceNumber:
+          type: string
+          maxLength: 30
+          title: Healthinsurancenumber
+        email:
+          anyOf:
+            - type: string
+              format: email
+            - type: 'null'
+          title: Email
+        mainDoctorId:
+          anyOf:
+            - type: string
+              format: uuid
+            - type: 'null'
+          title: Maindoctorid
+        patientConsent:
+          anyOf:
+            - type: boolean
+            - type: 'null'
+          title: Patientconsent
+      type: object
+      title: PatientUpdate
+      description: A model for updating a patient
+    RealmRoles:
+      items:
+        $ref: '#/components/schemas/Role'
+      type: array
+      uniqueItems: true
+      title: RealmRoles
+      description: Pydantic representation of unique Keycloak Roles
+    RequiredActionListing:
+      items:
+        $ref: '#/components/schemas/Action'
+      type: array
+      uniqueItems: true
+      title: RequiredActionListing
+      description: Pydantic representation of unique Keycloak Actions
+    Role:
+      type: string
+      title: Role
+      description: Pydantic representation of a Keycloak Role
+    Sex:
+      type: string
+      enum:
+        - male
+        - female
+      title: Sex
+      description: Represents biological sex
+    SpecialityItem:
+      properties:
+        value:
+          type: string
+          title: Value
+        label:
+          type: string
+          title: Label
+      type: object
+      required:
+        - value
+        - label
+      title: SpecialityItem
+      description: Pydantic model for specialist statuses response
+    UserInfo:
+      properties:
+        id:
+          type: string
+          format: uuid4
+          title: Id
+        createdTimestamp:
+          type: string
+          format: date-time
+          title: Createdtimestamp
+        username:
+          type: string
+          title: Username
+        enabled:
+          type: boolean
+          title: Enabled
+        totp:
+          type: boolean
+          title: Totp
+        emailVerified:
+          type: boolean
+          title: Emailverified
+        firstName:
+          type: string
+          title: Firstname
+        lastName:
+          type: string
+          title: Lastname
+        email:
+          type: string
+          title: Email
+        attributes:
+          allOf:
+            - $ref: '#/components/schemas/Attributes'
+          default: { }
+        requiredActions:
+          $ref: '#/components/schemas/RequiredActionListing'
+        realmRoles:
+          $ref: '#/components/schemas/RealmRoles'
+        clientRoles:
+          $ref: '#/components/schemas/ClientRoles'
+        groups:
+          $ref: '#/components/schemas/GroupListing'
+      type: object
+      required:
+        - id
+        - createdTimestamp
+        - username
+        - enabled
+        - totp
+        - emailVerified
+        - firstName
+        - lastName
+        - email
+        - requiredActions
+        - realmRoles
+        - clientRoles
+        - groups
+      title: UserInfo
+      description: Pydantic model for a Keycloak User that has its roles/groups populated
+    UserRepresentation:
+      properties:
+        email:
+          type: string
+          title: Email
+        enabled:
+          anyOf:
+            - type: boolean
+            - type: 'null'
+          title: Enabled
+        firstName:
+          type: string
+          title: Firstname
+        id:
+          anyOf:
+            - type: string
+            - type: 'null'
+          title: Id
+        lastName:
+          type: string
+          title: Lastname
+        username:
+          anyOf:
+            - type: string
+            - type: 'null'
+          title: Username
+        attributes:
+          $ref: '#/components/schemas/AttributesAll'
+        groups:
+          items:
+            type: string
+          type: array
+          title: Groups
+      type: object
+      required:
+        - email
+        - firstName
+        - lastName
+        - attributes
+        - groups
+      title: UserRepresentation
+      description: Pydantic model for a Keycloak User request that are optional
+    ValidInsuranceID:
+      properties:
+        healthInsuranceNumber:
+          type: string
+          title: Healthinsurancenumber
+      type: object
+      required:
+        - healthInsuranceNumber
+      title: ValidInsuranceID
+      description: Health insurance validation input
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+              - type: string
+              - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+        - loc
+        - msg
+        - type
+      title: ValidationError
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        implicit:
+          scopes:
+            openid: openid
+            phone: phone
+            roles: roles
+            email: email
+            microprofile-jwt: microprofile-jwt
+            address: address
+            acr: acr
+            profile: profile
+            web-origins: web-origins
+            offline_access: offline_access
+          authorizationUrl: >-
+            https://authservice.docpad.saturn.pi-medical-germany.de/realms/development_new/protocol/openid-connect/auth

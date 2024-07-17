@@ -1,0 +1,357 @@
+{
+  "general": {
+    "firstName": "Vorname",
+    "lastName": "Nachname",
+    "name": "Name",
+    "gender": "Geschlecht",
+    "age": "Alter",
+    "careSetting": "Versorgungssystem:",
+    "triggerForVisit": "Anlass",
+    "episodeDates": "Datum der Episode",
+    "insuranceId": "Krankenversichertennummer",
+    "selectPlaceholder": "Bitte auswählen",
+    "addExplanation": "Begründung hinzufügen",
+    "seeMoreButton": "Mehr anzeigen"
+  },
+  "buttons": {
+    "reportError": "Diesen Fehler melden",
+    "tryAgain": "Erneut versuchen",
+    "goHomepage": "Zur Homepage",
+    "ok": "OK",
+    "cancel": "Abbrechen",
+    "save": "Speichern",
+    "assignToMe": "Mir zuweisen"
+  },
+  "filters": {
+    "searchPlaceholder": "Suche",
+    "label": "FILTERN NACH:",
+    "filterCount": "{{count}} Filter",
+    "filterCountZero": "{{count}} Filter"
+  },
+  "roundtree": {
+    "MET": "MET",
+    "PSY": "PSY",
+    "NEU": "NEU",
+    "EYE": "AUGE",
+    "ENT": "HNO",
+    "PUL": "PUL",
+    "CV": "KV",
+    "GI": "GI",
+    "GU": "UG",
+    "MUS": "BEW",
+    "DERM": "DERM",
+    "HEME": "HÄM"
+  },
+  "sidebar": {
+    "doctorDashboard": "Dashboard der ÄrztIn",
+    "currentPatientList": "Aktuelle PatientInnenliste",
+    "diagnosticMatrix": "Diagnosematrix",
+    "changeDepartment": "Abteilung wechseln",
+    "settings": "Einstellungen",
+    "logoutHeader": "Sind Sie sicher, dass Sie sich ausloggen möchten?",
+    "logoutInfo": "Nach dem Logout müssen Sie sich erneut einloggen, um die Anwendung wie zuvor benutzen zu können.",
+    "logout": "Logout",
+    "cancel": "Abbrechen"
+  },
+  "departmentChange": {
+    "departmentChange": "Abteilungswechsel",
+    "departmentSelection": "Abteilungsauswahl",
+    "infoText": "Wählen Sie eine der Abteilungen, die Ihnen von Ihrem Local-Admin zugewiesen wurde, oder eine beliebige Abteilung Ihrer Institution aus.",
+    "myDepartments": "Meine Abteilungen",
+    "allDepartments": "Alle Abteilungen Ihrer Institution",
+    "department": "Abteilung",
+    "switchExplanation": "Begründung für die Auswahl einer Ihnen nicht zugewiesenen Abteilung",
+    "search": "Suche"
+  },
+  "settings": {
+    "changePassword": "Passwort ändern"
+  },
+  "patientTableActions": {
+    "assignMe": "Mir zuweisen",
+    "gotoPatientDashboard": "Zum PatientInnen Dashboard gehen, um die vollständige Akte anzuzeigen.",
+    "gotoEpisodeDashboard": "Zum Episoden Dashboard gehen, um die Details der aktuellsten Episode anzuzeigen."
+  },
+  "doctorDashboard": {
+    "title": "Meine Aufgaben und PatientInnen",
+    "refreshButtonLabel": "Aktualisieren",
+    "addPatientButtonLabel": "PatientIn hinzufügen",
+    "overviewActionsDescription": "Durch das Klicken einer der farbigen Boxen wird die untenstehende Liste umsortiert. Einträge mit Benachrichtigungen in der ausgewählten Kategorie werden zuerst angezeigt.",
+    "patientList": {
+      "title": "Liste der PatientInnen",
+      "searchPlaceholder": "Suchen Sie nach Name oder Geburtsdatum (TT-MM-JJJJ)",
+      "filters": {
+        "searchPlaceholder": "Suche",
+        "label": "FILTERN NACH:",
+        "filterCount": "{{count}} Filter"
+      },
+      "sort": {
+        "label": "SORTIEREN NACH:"
+      }
+    }
+  },
+  "patientDashboard": {
+    "header": {
+      "patientDashboard": "PatientInnen Dashboard",
+      "myTasks": "Meine Aufgaben und PatientInnen",
+      "newEpisode": "Neue Episode",
+      "activeDiagnoses": "Aktive Diagnosen",
+      "medicationPlan": "Medikationsplan",
+      "labValues": "Laborwerte",
+      "documents": "Dokumente"
+    },
+    "bodySystemsCard": {
+      "title": "Status der Körpersysteme innerhalb der Episode"
+    },
+    "interpolatedTimeline": {
+      "yAxisDescription": "Status der Körpersysteme",
+      "xAxisDescription": "Snapshots der ausgewählten Episode",
+      "selectEpisodeHint": "Bitte wählen Sie eine Episode in der obigen Timeline aus, um den zugehörigen detaillierten Graphen und den entsprechenden interpolierten Roundtree zu sehen."
+    },
+    "cardsColumn": {
+      "selectEpisodeHint": "Bitte wählen Sie eine Episode in der obigen Timeline aus, um weitere Informationen zu den Daten innerhalb dieser Episode zu bekommen.",
+      "title": "Folgende Daten stellen eine kurze Übersicht dieser Episode dar",
+      "institutionCard": {
+        "title": "Name der Institution und Abteilung für diese Episode"
+      },
+      "triggerForVisitCard": {
+        "title": "Anlass dieser Episode"
+      },
+      "diagnosesCard": {
+        "title": "Diagnosen dieser Episode"
+      },
+      "risksCard": {
+        "title": "Risikofaktoren dieser Episode"
+      },
+      "proceduresCard": {
+        "title": "Prozeduren und Operationen dieser Episode"
+      }
+    },
+    "detailsOverview": {
+      "body": "Sie sehen die Diagnosen und Risikofaktoren, die in dem letzten Snapshot dieser Episode erfasst wurden."
+    }
+  },
+  "currentPatientList": {
+    "title": "Aktuelle PatientInnenliste",
+    "addPatientButtonLabel": "PatientIn hinzufügen",
+    "table": {
+      "arrival": "Ankunftszeit\nund Datum",
+      "arrivalTimeDate": "Ankunftszeit\nund Datum",
+      "severityScheduledTime": "Schweregrad/\ngeplante Zeit",
+      "rm": "Zi",
+      "nameGender": "Name, Geschlecht",
+      "age": "Alter",
+      "triggerForVisit": "Anlass",
+      "d1": "1\u00B0",
+      "d2": "2\u00B0",
+      "vitalSigns": "Vital-\nzeichen",
+      "lab": "Labor",
+      "imaging": "Bildgb.",
+      "meds": "Med.",
+      "dispo": "Entlassung",
+      "totalTime": "Gesamtzeit",
+      "assigning": "Zuweisen"
+    },
+    "patientTableActions": {
+      "assignMe": "Mir zuweisen",
+      "gotoPatientDashboard": "Zum Patienten Dashboard gehen, um die vollständige Akte anzuzeigen.",
+      "gotoEpisodeDashboard": "Zum Episoden Dashboard gehen, um die Details der aktuellsten Episode anzuzeigen."
+    },
+    "filterOptions": {
+      "patientsAssignedToMe": "Mir zugewiesene PatientInnen",
+      "patientsNotAssignedToAnyone": "PatientInnen, die niemanden zugewiesen sind"
+    }
+  },
+  "episodeNotNeedSupervision": {
+    "title": "Episode zuweisen",
+    "infoText": "Sie wollen folgende Episode übernehmen:",
+    "description": "Bitte bestätigen Sie die Neuzuweisung der Episode. Sie übernehmen damit Verantwortung für diese Episode und können diese abschließen."
+  },
+  "diagnosticMatrix": {
+    "title": "Diagnosematrix",
+    "body": "Wählen Sie eine Hauptbeschwerde aus und überprüfen Sie die Diagnosen in der Matrix, sortiert nach Körpersystem und Ursache der Krankheit.",
+    "dropDownLabel": "Hauptbeschwerde",
+    "dropDownPlaceholder": "Bitte auswählen",
+    "filters": {
+      "label": "FILTERN NACH:",
+      "filterCount": "{{count}} Filter"
+    },
+    "dialog": {
+      "title": "ANLEITUNG DIAGNOSE MATRIX",
+      "point1": "Die Diagnose Matrix erstellt eine Übersicht über mögliche Diagnosen, die aufgrund einer gewählten Hauptbeschwerde eines Patienten in Betracht gezogen werden können. Die Matrix dient der Erweiterung der diagnostischen Erwägungen und ist gegliedert nach Körpersystem von dem die Diagnose ausgeht und dem pathologischen Mechanismus (Ätiologie).",
+      "point2": "Im Falle mehrerer möglichen Ätiologien ist die Diagnose in der Zeile aufgeführt, die die höchste Prävalenz aufzeigt.",
+      "point3": "Die MULT Spalte beinhaltet Diagnosen, die mehr als einem Körpersystem zugeordnet sind.",
+      "point4": "Die Gesamtliste kann nach Zeile, Spalte, oder einzelnen Felder durch Anklicken gefiltert werden.",
+      "point5": "Wählen Sie eine Diagnose durch Anklicken aus der Liste aus, um Detailinformationen aus der medizinischen Datenbank aufzurufen.",
+      "point6": "Die Krankheitsursachen werden in die folgenden Kategorien unterteilt:",
+      "int": "internal; durch körpereigene Vorgänge verursachte Diagnosen",
+      "ext": "external; durch externe Ursachen oder im Austausch mit der Umwelt verursachte Diagnosen",
+      "intExt": "internal und external kombiniert verursachte Diagnosen",
+      "other": "Diagnosen, deren Verursachung unbekannt oder ungeklärt ist.",
+      "risks": "Risiko:",
+      "veryLowRisk": "sehr niedrig",
+      "lowRisk": "niedrig",
+      "mediumRisk": "mittel",
+      "highRisk": "hoch",
+      "veryHighRisk": "sehr hoch",
+      "point7": "Die Nummern in den Rauten gibt die Anzahl der Diagnosen an, die sich an der jeweiligen Schnittstelle von Körpersystem und auslösenden Ursache befindet. Die Farbgebung entspricht dabei dem Risiko, und richtet sich nach der Diagnose mit dem höchsten Risiko.",
+      "diagnose1": "1 Diagnose",
+      "diagnose2": "2-4 Diagnosen",
+      "diagnose3": "5-9 Diagnosen",
+      "diagnose4": "10-20 Diagnosen",
+      "diagnose5": ">20 Diagnosen"
+    },
+    "diagnosticTable": {
+      "headers": {
+        "disease": "Ursache \nder Krankheit",
+        "bodySystem": "Körpersystem"
+      },
+      "rows": {
+        "geneticDevelopmental": "Genetisch/Entwicklungsbedingt",
+        "anatomicStructural": "Anatomisch/Strukturell",
+        "degenerativeAging": "Degenerativ/Altersbedingt",
+        "neoplastic": "Neoplastisch",
+        "regulatoryPhysiologic": "Regulatorisch/Physiologisch",
+        "infectiousImmune": "Infektiös/Immunologisch/Inflammatorisch",
+        "toxicChemical": "Toxisch/Chemisch",
+        "traumaPhysical": "Traumatisch/Physikalisch",
+        "environmentalSupply": "Umweltbedingt/Aufnahme-Elimination",
+        "idiopathic": "Idiopathisch"
+      },
+      "sidebars": {
+        "diagnosisLists": {
+          "title": "Liste der Diagnosen ({{count}} DDx)",
+          "filter": "ANGEWANDTE FILTER"
+        },
+        "details": {
+          "title": "Details",
+          "selectDiagnosis": "Wählen Sie eine Diagnose aus der Liste links aus, um Details über diese Diagnose zu erhalten.",
+          "rotateDevice": "Drehen Sie das Gerät, um weitere Details anzuzeigen",
+          "prevalence": "Prävalenz",
+          "moreDetails": "Weitere Details:",
+          "lorem": "lorem ipsum dolor",
+          "lorem2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In feugiat, elit a sollicitudin rutrum, tortor ligula mollis velit, vitae pellentesque tellus nulla nec augue. Nullam vestibulum venenatis consectetur. Nulla odio urna, sodales at posuere a, accumsan non tortor. Donec id rutrum diam, eu volutpat dui. Fusce lobortis mauris luctus dolor convallis, eget lobortis est scelerisque. Etiam tristique volutpat leo, nec suscipit urna efficitur sit amet. Nunc tincidunt, felis in fringilla dignissim, orci est interdum sapien, at facilisis magna libero at quam. Nunc eget mauris et turpis pharetra pulvinar eu vel quam. Quisque sollicitudin tortor diam, id cursus eros fermentum vitae. Etiam congue justo et ex bibendum gravida. Nullam varius quam laoreet sem ullamcorper semper sit amet ut lorem. Vestibulum luctus urna metus, eget dictum purus imperdiet at. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam id dapibus nulla."
+        }
+      }
+    }
+  },
+  "languageSelection": {
+    "selectLanguage": "Sprache auswählen",
+    "start": "Start",
+    "info": "Sie können die Sprache später in den Einstellungen ändern.",
+    "languageSwitcher": "Sprachauswahl und bevorzugte Gendersprache",
+    "selectGender": "Bevorzugte Gendersprache",
+    "germanGendered": "Binnen-I",
+    "germanMale": "Generisch männlich"
+  },
+  "welcomeScreen": {
+    "welcome": "Herzlich Willkommen!",
+    "info": "DocPad® ist eine Plattform für ÄrztInnen zur Dokumentation medizinischer Information. Sie ermöglicht den Austausch klinischer Daten unter Leistungserbringern, fasst Symptome und Befunde graphisch zusammen, und unterstützt Diagnose und Therapie.",
+    "goToLoginPage": "Zum Login"
+  },
+  "loginScreen": {
+    "login": "Login",
+    "email": "E-Mail-Adresse",
+    "emailPlaceholder": "Bitte geben Sie Ihre E-Mail-Adresse ein.",
+    "password": "Passwort",
+    "passwordPlaceholder": "Bitte geben Sie Ihr Passwort ein.",
+    "forgotPassword": "Haben Sie Ihr Passwort vergessen?",
+    "loginButton": "Login"
+  },
+  "changePassword": {
+    "title": "Passwort ändern",
+    "oldPassword": "Altes Passwort",
+    "oldPasswordPlaceholder": "Bitte geben Sie Ihr altes Passwort ein.",
+    "newPassword": "Neues Passwort",
+    "newPasswordPlaceholder": "Bitte geben Sie ein neues Passwort ein.",
+    "newPasswordCondition1": "Mindestens 12 Zeichen",
+    "newPasswordCondition2": "Mindestens jeweils 1 Klein- und Großbuchstabe",
+    "newPasswordCondition3": "Mindestens 1 Ziffer",
+    "newPasswordCondition4": "Mindestens 1 Sonderzeichen",
+    "reEnterPassword": "Neues Passwort wiederholen",
+    "reEnterPasswordPlaceholder": "Bitte geben Sie Ihr neues Passwort erneut ein.",
+    "rePasswordError": "Die eingegebenen Passwörter stimmen nicht überein. Bitte versuchen Sie es erneut.",
+    "changePasswordButton": "Passwort ändern"
+  },
+  "forgotPassword": {
+    "title": "Forgot password",
+    "body": "Enter your email address, which is associated with your account.We will send a link to reset your password to this address.",
+    "email": "E-mail",
+    "emailPlaceholder": "Your e-mail here",
+    "forgotPasswordBtn": "Forgot password",
+    "login": "Login",
+    "checkYourInbox": {
+      "title": "Check your email inbox",
+      "body": "We have sent a link to reset your password to the email address you provided. Check your inbox and set a new password. \n\n If the email address has not reached you: \n look in your SPAM folder \n check to assure that the e-mail address you entered is correct",
+      "backToLogin": "Come back to login"
+    }
+  },
+  "addPatientScreen": {
+    "title": "Neue PatientIn zum DocPad hinzufügen",
+    "body": "Bitte geben Sie die folgenden Daten ein, um eine neue PatientIn zum DocPad hinzuzufügen. Bitte beachten Sie, dass diese PatientIn hierfür auch in Ihrem PVS angelegt sein muss.",
+    "firstNamePlaceholder": "Bitte geben Sie den Vornamen ein.",
+    "lastNamePlaceholder": "Bitte geben Sie den Nachnamen ein.",
+    "insuranceIdError": "Die Krankenversichertennummer ist fehlerhaft. Bitte versuchen Sie es erneut.",
+    "insuranceIdPlaceholder": "Bitte geben Sie die Krankenversichertennummer ein.",
+    "insuranceProvider": "Versicherer (nur im Fall einer privaten Krankenversicherung)",
+    "addPatientButton": "PatientIn hinzufügen",
+    "searchResults": {
+      "searchingPatients": "PatientIn wird im PVS gesucht...",
+      "title": "Suchergebnisse im PVS",
+      "noDataError": "Die PatientIn konnte nicht in Ihrem PVS gefunden werden. Bitte fügen Sie die PatientIn zunächst in Ihrem PVS hinzu.",
+      "multipleDataError": "In Ihrem PVS wurden mehrere PatientInnen gefunden, die Ihren Suchkriterien entsprechen. Bitte stellen Sie zunächst sicher, dass es in Ihrem PVS nur eine PatientIn mit dieser Versichertennummer gibt. Davor können keine Daten mit dem DocPad ausgetauscht werden.",
+      "errorButton": "Erneute Eingabe"
+    },
+    "consentConfirmation": {
+      "title": "Bestätigung zur Einwilligung der PatientIn",
+      "body": "Bitte bestätigen Sie, dass die PatientIn der Verarbeitung und Speicherung ihrer Daten im DocPad System, sowie dem Datenaustausch mit externen Systemen zugestimmt hat und das entsprechende Formular unterschrieben hat.",
+      "info": "Zusätzliche Information: Vermutlich wird es in Zukunft möglich sein die Einwilligung der PatientIn auf dieser Seite digital zu erfassen. Im Moment muss das noch auf Papier geschehen.",
+      "checkbox": "Die PatientIn hat der Verarbeitung und Speicherung ihrer Daten im DocPad System, sowie dem Datenaustausch mit externen Systemen zugestimmt.",
+      "confirmButton": "Bestätigen und PatientIn hinzufügen"
+    }
+  },
+  "globalTimeline": {
+    "episode": "Episoden",
+    "out-patient": "Ambulante",
+    "emergency": "Notfall",
+    "in-patient": "Stationäre",
+    "selectLatestOne": "Letzte \nauswählen",
+    "today": "Heute",
+    "checkPreviousEpisode": "Zur vorherigen Episode",
+    "checkNextEpisode": "Zur nächsten Episode",
+    "checkSelectedEpisode": "Zu den Episodendetails",
+    "clickTip": "Sobald die Episoden in der Zeitleiste maßstabsgetreu dargestellt werden, können Sie diese anwählen, um weitere Details einzublenden.",
+    "shadesTip": "Eine genauere Erklärung der Farben und Schattierungen in der Zeitleiste finden Sie in der Bedienungsanleitung."
+  },
+  "errorPages": {
+    "maintenance": {
+      "header": "Diese Seite befindet sich in Wartung",
+      "detail": "",
+      "info": ""
+    },
+    "construction": {
+      "header": "Diese Seite befindet sich im Aufbau",
+      "detail": "Es gab Probleme beim Synchronisieren der Daten.",
+      "info": "Versuchen Sie es erneut oder wenden Sie sich an den technischen Support/Local-Admin."
+    },
+    "noRights": {
+      "header": "Sie besitzen nicht die Berechtigungen, diese Seite zu sehen",
+      "detail": "Sie besitzen nicht die Berechtigungen, Inhalte auf dieser Seite zu sehen.",
+      "info": "Kontaktieren Sie Ihren Local-Admin."
+    },
+    "pageDoesntExist": {
+      "header": "Diese Seite existiert nicht",
+      "detail": "Möglicherweise liegt es daran, dass diese Seite verschoben oder entfernt wurde, etwas nicht mit der Webadresse stimmt, ein technischer Fehler aufgetreten ist",
+      "info": "Bitte versuchen Sie es später erneut. Sollte das Problem weiterhin auftreten, nehmen Sie bitte mit dem technischen Support Kontakt auf."
+    },
+    "cantBeReached": {
+      "header": "Diese Seite kann nicht erreicht werden",
+      "detail": "Es dauert zu lange die Seite zu laden.",
+      "info": "Überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut. Falls weiterhin Probleme auftreten, kontaktieren Sie bitte den technischen Support."
+    },
+    "unableToShow": {
+      "header": "Entschuldigen Sie - diese Seite kann aktuell nicht angezeigt werden",
+      "detail": "Vermutlich besitzen Sie nicht die Berechtigungen, Inhalte auf dieser Seite zu sehen.",
+      "info": "Bitte versuchen Sie es erneut oder kontaktieren Sie den technischen Support / Local-Admin."
+    }
+  }
+}

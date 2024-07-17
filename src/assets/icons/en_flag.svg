@@ -1,0 +1,16 @@
+<svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="flag">
+<mask id="mask0_3420_3089" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="25">
+<circle id="ellipse" cx="12" cy="12.5" r="12" fill="#D9D9D9"/>
+</mask>
+<g mask="url(#mask0_3420_3089)">
+<g id="vectors">
+<path id="vector" d="M0 0.5H24V24.5H0V0.5Z" fill="#012169"/>
+<path id="vector_2" d="M24 0.5V3.5L15.0938 12.5L24 21.2656V24.5H20.8594L11.9062 15.6875L3.1875 24.5H0V21.3125L8.71875 12.5469L0 3.96875V0.5H2.90625L11.9062 9.3125L20.625 0.5H24Z" fill="white"/>
+<path id="vector_3" d="M8.625 15.6875L9.14062 17.2812L1.96875 24.5H0V24.3594L8.625 15.6875ZM14.4375 15.125L16.9688 15.5L24 22.3906V24.5L14.4375 15.125ZM24 0.5L15 9.6875L14.8125 7.625L21.8438 0.5H24ZM0 0.546875L9.04688 9.40625L6.28125 9.03125L0 2.79688V0.546875Z" fill="#C8102E"/>
+<path id="vector_4" d="M8.25 0.5V24.5H15.75V0.5H8.25ZM0 8.75V16.25H24V8.75H0Z" fill="white"/>
+<path id="vector_5" d="M0 10.25V14.75H24V10.25H0ZM9.75 0.5V24.5H14.25V0.5H9.75Z" fill="#C8102E"/>
+</g>
+</g>
+</g>
+</svg>
