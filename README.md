@@ -2,7 +2,16 @@
 
 ## Description
 
-The DocPad app is initiated using React Native and Typescript.
+Docpad 📱 is a mobile application designed for hospitals and medical organizations, primarily used on iPads. 🏥 It allows each institution or department to efficiently manage patient records 📋, track visits 🏃, and handle medical prescriptions 💊. Doctors can easily maintain and access all related information, ensuring streamlined and organized healthcare management. With Docpad, healthcare professionals can provide better patient care through improved data accessibility and organization. 🌟
+
+## Demo 
+
+
+
+https://github.com/user-attachments/assets/1144cc49-0d1d-4fc6-8472-3e152949fc7a
+
+
+
 
 ## Prerequisites
 
